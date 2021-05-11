@@ -17,6 +17,12 @@ namespace AutoBiller.Models.Customer
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
+        //[Display(Name = "Full Name")]
+        //public string CustomerFullName
+        //{
+        //    get { return CustomerFirstName + " " + CustomerLastName; }
+        //}
+
         [Required]
         [Display(Name = "Home Address")]
         public string CustomerAddress { get; set; }

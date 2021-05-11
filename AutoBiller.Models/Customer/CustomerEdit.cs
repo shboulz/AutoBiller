@@ -9,6 +9,8 @@ namespace AutoBiller.Models.Customer
 {
     public class CustomerEdit
     {
+        public int CustomerId { get; set; }
+
         [Display(Name = "First Name")]
         public string CustomerFirstName { get; set; }
 

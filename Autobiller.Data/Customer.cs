@@ -25,11 +25,8 @@ namespace Autobiller.Data
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
-        [Display(Name = "Full Name")]
-        public string CustomerFullName
-        {
-            get{ return CustomerFirstName + " " + CustomerLastName; } 
-        }
+        //[Display(Name = "Full Name")]
+        //public string CustomerFullName { get; set; }
 
         [Required]
         public string CustomerAddress { get; set; }
