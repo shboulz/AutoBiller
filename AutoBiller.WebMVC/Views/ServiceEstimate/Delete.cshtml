@@ -1,0 +1,88 @@
+﻿@model AutoBiller.Models.ServiceEstimate.ServiceEstimateDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>ServiceEstimateDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicePartCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServicePartCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceLaborCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceLaborCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceSubtotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceSubtotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceTax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceTax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceTotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceTotalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceNotes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

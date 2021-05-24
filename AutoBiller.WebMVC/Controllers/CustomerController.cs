@@ -70,6 +70,10 @@ namespace AutoBiller.WebMVC.Controllers
                     CustomerId = detail.CustomerId,
                     CustomerFirstName = detail.CustomerFirstName,
                     CustomerLastName = detail.CustomerLastName,
+                    CustomerAddress = detail.CustomerAddress,
+                    CustomerPhoneNumber = detail.CustomerPhoneNumber,
+                    IsCustomerVIP = detail.IsCustomerVIP
+
                 };
             return View(model);
         }

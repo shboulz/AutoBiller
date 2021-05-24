@@ -26,26 +26,54 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CustomerLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsCustomerVIP)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsCustomerVIP, new { id = item.CustomerId })
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+            </td>
+        </tr>
+    }
 
 </table>
+@section scripts {
+    <script language="javascript" type="text/javascript">
+     $(document).ready(function () {
+         $("i[data-toggle='star']")
+             .css({ "cursor": "pointer" })
+             .click(function (e) {
+                 var target = $(e.target);
+                 var customerId = target.attr("data-id");
+                 var starSet = target.hasClass("glyphicon-star");
+
+                 $.ajax({
+                     method: starSet ? "DELETE" : "PUT",
+                     url: "/api/Customer/" + customerId + "/star",
+                     data: null
+                 })
+                 .done(function (r) {
+                     target.removeClass();
+                     target.addClass("glyphicon " + (starSet ? "glyphicon-star-empty" : "glyphicon-star"));
+                 })
+                 .fail(function (r) {
+                     alert("Failed to change star status");
+                 });
+             });
+     });
+    </script>
+}
+

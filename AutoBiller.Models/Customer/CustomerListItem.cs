@@ -17,8 +17,8 @@ namespace AutoBiller.Models.Customer
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
-        [UIHint("VIP")]
-        [Display(Name = "VIP Progam")]
+        [UIHint("Starred")]
+        [Display(Name = "VIP")]
         public bool IsCustomerVIP { get; set; }
 
     }

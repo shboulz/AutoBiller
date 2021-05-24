@@ -6,37 +6,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Autobiller.Data
+namespace AutoBiller.Data
 {
     public class ServiceEstimate
     {
         [Key]
         public int ServiceId { get; set; }
 
-        [ForeignKey(nameof(WarrantyInfo))]
-        public int? WarrantyId { get; set; }
-        public virtual WarrantyInfo WarrantyInfo { get; set; }
+        [ForeignKey(nameof(RepairShop))]
+        public int? RepairShopId { get; set; }
+        public virtual RepairShop RepairShop { get; set; }
 
-        [Required]
-        public double ServiceTax { get; set; }
+        public Guid BayId { get; set; }
+        [ForeignKey(nameof(Vehicle))]
+        public int? VehicleId { get; set; }
+        public virtual Vehicle Vehicle { get; set; }
 
-        [Required]
-        public double ServiceLaborCost { get; set; }
+        public string VehicleMake { get; set; }
+
+        public string ServiceNotes { get; set; }
+
+        public double ServiceTax 
+        {
+            get
+            {
+               return 0.07;
+            }
+        }
+
+        public double ServiceLaborCost 
+        {
+            get
+            {
+                return 55.00;
+            }
+
+        }
 
         [Required]
         public double ServicePartCost { get; set; }
 
-        [Required]
-        public bool ServiceDiscountVIP { get; set; }
+        public double ServiceSubtotal 
+        {
+            get
+            {
+                return ServicePartCost + ServiceLaborCost;
+            }
+        }
 
-        [Required]
-        public double DiscountVIP { get; set; }
+        public double ServiceTotalCost 
+        {
+            get
+            {
+                return (ServiceSubtotal * ServiceTax) + ServiceSubtotal;
+            }
+        }
 
-        [Required]
-        public bool IsVehicleWarrantyValid { get; set; }
+        //public virtual ICollection<Vehicle> CustomerVehicles { get; set; } = new List<Vehicle>();
 
-        [Required]
-        public double ServiceTotalCost { get; set; }
-
+        //public virtual ICollection<RepairShop> CustomerRepairShopEstimates { get; set; } = new List<RepairShop>();
+        public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
     }
 }

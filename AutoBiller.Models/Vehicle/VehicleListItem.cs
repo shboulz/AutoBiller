@@ -8,5 +8,12 @@ namespace AutoBiller.Models.Vehicle
 {
     public class VehicleListItem
     {
+        public int VehicleId { get; set; }
+
+        public string VehicleMake { get; set; }
+
+        //public string CustomerName { get; set; }
+
+
     }
 }

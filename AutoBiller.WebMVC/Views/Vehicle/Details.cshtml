@@ -1,0 +1,58 @@
+﻿@model AutoBiller.Models.Vehicle.VehicleDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>VehicleDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.VehicleId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

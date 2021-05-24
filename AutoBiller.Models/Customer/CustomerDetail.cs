@@ -27,7 +27,9 @@ namespace AutoBiller.Models.Customer
         public string CustomerAddress { get; set; }
 
         [Display(Name = "Phone Number")]
-        public int CustomerPhoneNumber { get; set; }
+        public string CustomerPhoneNumber { get; set; }
+
+        public bool IsCustomerVIP { get; set; }
 
     }
 }

@@ -1,5 +1,4 @@
-﻿using Autobiller.Data;
-using AutoBiller.Data;
+﻿using AutoBiller.Data;
 using AutoBiller.Models.Customer;
 using System;
 using System.Collections.Generic;
@@ -24,6 +23,7 @@ namespace AutoBiller.Services
                 new Customer()
                 {
                     CarOwnerId = _customerId,
+                    //RepairShopId=model.RepairShopId,
                     CustomerFirstName = model.CustomerFirstName,
                     CustomerLastName = model.CustomerLastName,
                     CustomerAddress = model.CustomerAddress,
@@ -32,6 +32,8 @@ namespace AutoBiller.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                //var ticket = ctx.RepairShops.SingleOrDefault(c => c.RepairShopId == entity.RepairShopId);
+                //ticket.RecentCustomers.Add(entity);
                 ctx.Customers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -72,11 +74,12 @@ namespace AutoBiller.Services
                     new CustomerDetail
                     {
                         CustomerId = entity.CustomerId,
-                        //CustomerFullName = entity.CustomerFullName,
                         CustomerFirstName = entity.CustomerFirstName,
                         CustomerLastName = entity.CustomerLastName,
                         CustomerAddress = entity.CustomerAddress,
-                        CustomerPhoneNumber = entity.CustomerPhoneNumber
+                        CustomerPhoneNumber = entity.CustomerPhoneNumber,
+                        IsCustomerVIP = entity.IsCustomerVIP
+                        //grab the list of vehicles
                     };
             }
         }

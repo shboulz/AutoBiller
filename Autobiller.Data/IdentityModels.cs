@@ -3,7 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Autobiller.Data;
+using AutoBiller.Data;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -36,7 +36,6 @@ namespace AutoBiller.Data
         public DbSet<RepairShop> RepairShops { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
-        public DbSet<WarrantyInfo> WarrantyInfos { get; set; }
         public DbSet<ServiceEstimate> ServiceEstimates { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

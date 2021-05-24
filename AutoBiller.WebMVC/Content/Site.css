@@ -1,6 +1,9 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background: url(https://images.unsplash.com/photo-1451847251646-8a6c0dd1510c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80);
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
