@@ -8,5 +8,14 @@ namespace AutoBiller.Models.Vehicle
 {
     public class VehicleDetail
     {
+        public int VehicleId { get; set; }
+
+        public string VehicleMake { get; set; }
+
+        public string VehicleModel { get; set; }
+
+        public string VehicleYear { get; set; }
+
+        public double VehicleMileage { get; set; }
     }
 }

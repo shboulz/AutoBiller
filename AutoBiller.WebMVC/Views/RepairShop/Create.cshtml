@@ -1,0 +1,162 @@
+﻿@model AutoBiller.Models.RepairShop.RepairShopCreate
+
+@{
+    ViewBag.Title = "Create";
+    List<SelectListItem> listOfCustomersId = new List<SelectListItem>();
+    List<SelectListItem> listOfCustomersFirstName = new List<SelectListItem>();
+    List<SelectListItem> listOfCustomersLastName = new List<SelectListItem>();
+    List<SelectListItem> listOfCustomersFullName = new List<SelectListItem>();
+    List<SelectListItem> listOfVehicleId = new List<SelectListItem>();
+    List<SelectListItem> listOfVehicleMakes = new List<SelectListItem>();
+    List<SelectListItem> listOfVehicleModels = new List<SelectListItem>();
+    List<SelectListItem> listOfServiceId = new List<SelectListItem>();
+    List<SelectListItem> listOfServiceCost = new List<SelectListItem>();
+    AutoBiller.Data.ApplicationDbContext _db = new AutoBiller.Data.ApplicationDbContext();
+
+    foreach (var customer in _db.Customers)
+    {
+        listOfCustomersId.Add(new SelectListItem() { Text = customer.CustomerId.ToString(), Value = customer.CustomerId.ToString() });
+    }
+
+    foreach (var customerFirstName in _db.Customers)
+    {
+        listOfCustomersFirstName.Add(new SelectListItem() { Text = customerFirstName.CustomerFirstName, Value = customerFirstName.CustomerFirstName.ToString() });
+    }
+
+    foreach (var customerLastName in _db.Customers)
+    {
+        listOfCustomersLastName.Add(new SelectListItem() { Text = customerLastName.CustomerLastName, Value = customerLastName.CustomerLastName.ToString() });
+    }
+
+    foreach (var customerName in _db.Customers)
+    {
+        listOfCustomersFullName.Add(new SelectListItem() { Text = customerName.CustomerFullName, Value = customerName.CustomerFullName.ToString() });
+    }
+
+    foreach (var vehicleId in _db.Vehicles)
+    {
+        listOfVehicleId.Add(new SelectListItem() { Text = vehicleId.VehicleId.ToString(), Value = vehicleId.VehicleId.ToString() });
+    }
+
+    foreach (var vehicleMake in _db.Vehicles)
+    {
+        listOfVehicleMakes.Add(new SelectListItem() { Text = vehicleMake.VehicleMake, Value = vehicleMake.VehicleMake.ToString() });
+    }
+
+    foreach (var vehicleModels in _db.Vehicles)
+    {
+        listOfVehicleModels.Add(new SelectListItem() { Text = vehicleModels.VehicleModel, Value = vehicleModels.VehicleModel.ToString() });
+    }
+
+    foreach (var serviceId in _db.ServiceEstimates)
+    {
+        listOfServiceId.Add(new SelectListItem() { Text = serviceId.ServiceId.ToString(), Value = serviceId.ServiceId.ToString() });
+    }
+
+    foreach (var serviceCost in _db.ServiceEstimates)
+    {
+        listOfServiceCost.Add(new SelectListItem() { Text = serviceCost.ServiceTotalCost.ToString(), Value = serviceCost.ServiceTotalCost.ToString() });
+    }
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>RepairShopCreate</h4>
+        <hr />
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.RepairShopId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RepairShopId, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RepairShopId, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CustomerId", listOfCustomersId, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerFirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CustomerFirstName", listOfCustomersFirstName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerFirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerLastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CustomerLastName", listOfCustomersLastName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerLastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerFullName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CustomerFullName", listOfCustomersFullName, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CustomerFullName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VehicleId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("VehicleId", listOfVehicleId, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VehicleId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VehicleMake, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("VehicleMake", listOfVehicleMakes, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VehicleMake, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.VehicleModel, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("VehicleModel", listOfVehicleModels, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.VehicleModel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ServiceId", listOfServiceId, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ServiceId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ServiceTotalCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ServiceTotalCost", listOfServiceCost, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ServiceTotalCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

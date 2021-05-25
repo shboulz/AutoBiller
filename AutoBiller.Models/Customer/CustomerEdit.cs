@@ -9,29 +9,25 @@ namespace AutoBiller.Models.Customer
 {
     public class CustomerEdit
     {
+        public int CustomerId { get; set; }
+
+        [Required(ErrorMessage = "Please enter First Name")]
         [Display(Name = "First Name")]
         public string CustomerFirstName { get; set; }
 
+        [Required(ErrorMessage = "Please enter Last Name")]
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
+        [Required(ErrorMessage = "Please enter Address")]
         [Display(Name = "Home Address")]
         public string CustomerAddress { get; set; }
 
+        [Required(ErrorMessage = "Please enter Phone Number")]
         [Display(Name = "Phone Number")]
-        public int CustomerPhoneNumber { get; set; }
-
-        //[Display(Name = "Vehicle Make")]
-        //public string VehicleMake { get; set; }
-
-        //[Display(Name = "Vehicle Model")]
-        //public string VehicleModel { get; set; }
-
-        //[Display(Name = "Vehicle Year")]
-        //public int VehicleYear { get; set; }
-
-        //[Display(Name = "Vehicle Mileage")]
-        //public double VehicleMileage { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
+        public string CustomerPhoneNumber { get; set; }
 
         [Display(Name = "VIP Program")]
         public bool IsCustomerVIP { get; set; }

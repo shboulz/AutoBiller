@@ -1,0 +1,64 @@
+﻿@model AutoBiller.Models.Vehicle.VehicleDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>VehicleDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMileage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMileage)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -23,7 +23,7 @@ namespace AutoBiller.WebMVC
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-light.css",
                       "~/Content/site.css"));
         }
     }

@@ -1,21 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Autobiller.Data
+namespace AutoBiller.Data
 {
     public class Customer
     {
         [Key]
         public int CustomerId { get; set; }
 
-        [ForeignKey(nameof(Vehicle))]
-        public int? VehicleId { get; set; }
-        public virtual Vehicle Vehicle { get; set; }
+       
+        //[ForeignKey(nameof(RepairShop))]
+        //public int RepairShopId { get; set; }
+        //public virtual RepairShop RepairShop { get; set; }
+
+
+        [ForeignKey(nameof(ServiceEstimate))]
+        public int? ServiceId { get; set; }
+        public virtual ServiceEstimate ServiceEstimate{ get; set; }
+
 
         [Required]
         [Display(Name = "First Name")]
@@ -25,25 +33,25 @@ namespace Autobiller.Data
         [Display(Name = "Last Name")]
         public string CustomerLastName { get; set; }
 
-        [Display(Name = "Full Name")]
+        [Display(Name = "Customer Full Name")]
         public string CustomerFullName
         {
-            get{ return CustomerFirstName + " " + CustomerLastName; } 
+            get { return CustomerFirstName + " " + CustomerLastName; }
         }
 
         [Required]
         public string CustomerAddress { get; set; }
 
         [Required]
-        public int CustomerPhoneNumber { get; set; }
+        public string CustomerPhoneNumber { get; set; }
 
         [Required]
         public Guid CarOwnerId { get; set; }
 
-        [Required]
+        [DefaultValue(false)]
         public bool IsCustomerVIP { get; set; }
 
-        public virtual ICollection<RepairShop> CustomerRepairShopEstimates { get; set; } = new List<RepairShop>();
+        //public virtual ICollection<RepairShop> CustomerRepairShop { get; set; } = new List<RepairShop>();
 
         public virtual ICollection<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
 

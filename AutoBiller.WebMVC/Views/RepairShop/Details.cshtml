@@ -1,0 +1,99 @@
+﻿@model AutoBiller.Models.RepairShop.RepairShopDetail
+
+@{
+    ViewBag.Title = "Details";
+    
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RepairShopDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RepairShopId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RepairShopId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerFullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerFullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleMake)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleMake)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceTotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceTotalCost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.RepairShopId  }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

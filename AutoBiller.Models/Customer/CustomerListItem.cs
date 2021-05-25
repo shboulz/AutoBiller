@@ -11,10 +11,14 @@ namespace AutoBiller.Models.Customer
     {
         public int CustomerId { get; set; }
 
-        public string CustomerFullName { get; set; }
+        [Display(Name = "First Name")]
+        public string CustomerFirstName { get; set; }
 
-        [UIHint("VIP")]
-        [Display(Name = "VIP Progam")]
+        [Display(Name = "Last Name")]
+        public string CustomerLastName { get; set; }
+
+        [UIHint("Starred")]
+        [Display(Name = "VIP")]
         public bool IsCustomerVIP { get; set; }
 
     }

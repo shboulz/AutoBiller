@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBiller.WebMVC", "AutoBiller.WebMVC\AutoBiller.WebMVC.csproj", "{AA310F48-D4F6-4361-839B-8A3D1C5D3788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autobiller.Data", "Autobiller.Data\Autobiller.Data.csproj", "{9205016A-8A9A-4E80-A055-4C7683F15CE0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBiller.Data", "Autobiller.Data\AutoBiller.Data.csproj", "{9205016A-8A9A-4E80-A055-4C7683F15CE0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBiller.Models", "AutoBiller.Models\AutoBiller.Models.csproj", "{5566E5CA-9C19-462C-A429-C814E977C1F2}"
 EndProject
